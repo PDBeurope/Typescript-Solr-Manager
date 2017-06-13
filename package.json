@@ -1,0 +1,25 @@
+{
+  "name": "typescript-solr-manager",
+  "version": "0.1.0",
+  "description": "AjaxSolr fork re-written in Typescript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git"
+  },
+  "keywords": [
+    "AjaxSolr",
+    "Typescript",
+    "Solr",
+    "PDBe"
+  ],
+  "author": "Mandar Deshpande",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/PDBeurope/Typescript-Solr-Manager/issues"
+  },
+  "homepage": "https://github.com/PDBeurope/Typescript-Solr-Manager#readme"
+}

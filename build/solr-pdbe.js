@@ -6,8 +6,8 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//www.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//www.ebi.ac.uk/pdbe/search/latest/'
+                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
                     name: 'facetsManager'
                 },
@@ -47,17 +47,16 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//www.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//www.ebi.ac.uk/pdbe/search/latest/'
+                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
-                    name: 'entryManager',
+                    name: 'entriesManager',
                 },
                 managerParams: {
                     'q': '*:*',
                     'group': true,
                     'group.field': ['pdb_id'],
                     'group.ngroups': true,
-                    'sort': 'overall_quality desc',
                     'rows': 100,
                     'json.nl': 'map',
                     'fl': [
@@ -71,14 +70,13 @@ var PDBe;
                         normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
                         latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
-                    name: 'moleculeManager',
+                    name: 'macroMoleculesManager',
                 },
                 managerParams: {
                     'q': '*:*',
                     'group': true,
                     'group.field': ['pdb_id'],
                     'group.ngroups': true,
-                    'group.facet': true,
                     'facet.pivot': 'molecule_name,inv_overall_quality,entry_entity',
                     'facet.pivot.mincount': 1,
                     'facet.sort': 'overall_quality+asc',
@@ -96,26 +94,25 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//www.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//www.ebi.ac.uk/pdbe/search/latest/'
+                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
-                    name: 'compoundManager'
+                    name: 'macroMoleculesTotalManager',
                 },
                 managerParams: {
                     'q': '*:*',
                     'group': true,
                     'group.field': ['pdb_id'],
                     'group.ngroups': true,
-                    'group.facet': true,
-                    'facet.pivot': 'interacting_ligands,molecule_name,inv_overall_quality,entry_entity',
+                    'facet.pivot': 'molecule_name,inv_overall_quality,entry_entity',
                     'facet.pivot.mincount': 1,
                     'facet.sort': 'overall_quality+asc',
-                    'facet.field': 'interacting_ligands',
+                    'facet.field': 'molecule_name',
                     'facet': true,
-                    'f.interacting_ligands.facet.limit': 100,
-                    'f.interacting_ligands.facet.offset': 0,
+                    'f.molecule_name.facet.limit': 100000,
+                    'f.molecule_name.facet.offset': 0,
                     'rows': 0,
-                    'facet.limit': 10,
+                    'facet.limit': 20000,
                     'facet.mincount': 1,
                     'json.nl': 'map',
                     'fq': 'status:REL'
@@ -124,17 +121,88 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//www.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//www.ebi.ac.uk/pdbe/search/latest/'
+                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
                     },
-                    name: 'seqFamilyManager',
+                    name: 'pivotEntriesManager',
+                },
+                managerParams: {
+                    'group': true,
+                    'group.facet': true,
+                    'group.ngroups': true,
+                    'group.field': ['entry_entity'],
+                    'fl': [
+                        'pdb_id', 'citation_title', 'citation_authors', 'title', 'experimental_method', 'entry_authors', 'pubmed_id', 'citation_year', 'journal', 'organism_scientific_name', 'assembly_composition', 'interacting_ligands', 'tax_id', 'resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'pfam_accession'
+                    ]
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'compoundsManager'
                 },
                 managerParams: {
                     'q': '*:*',
                     'group': true,
                     'group.field': ['pdb_id'],
                     'group.ngroups': true,
-                    'group.facet': true,
+                    'facet.pivot': 'interacting_ligands,molecule_name,inv_overall_quality,entry_entity',
+                    'facet.pivot.mincount': 1,
+                    'facet.sort': 'overall_quality+asc',
+                    'facet.field': 'interacting_ligands',
+                    'facet': true,
+                    'f.interacting_ligands.facet.limit': 100,
+                    'f.interacting_ligands.facet.offset': 0,
+                    'rows': 0,
+                    'facet.limit': 20000,
+                    'facet.mincount': 1,
+                    'json.nl': 'map',
+                    'fq': 'status:REL'
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'compoundsTotalManager',
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'facet.pivot': 'interacting_ligands,molecule_name,inv_overall_quality,entry_entity',
+                    'facet.pivot.mincount': 1,
+                    'facet.sort': 'overall_quality+asc',
+                    'facet.field': 'interacting_ligands',
+                    'facet': true,
+                    'f.interacting_ligands.facet.limit': 100000,
+                    'f.interacting_ligands.facet.offset': 0,
+                    'rows': 0,
+                    'facet.limit': 20000,
+                    'facet.mincount': 1,
+                    'json.nl': 'map',
+                    'fq': 'status:REL'
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'proteinFamiliesManager',
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
                     'facet.pivot': 'pfam_name,molecule_name,inv_overall_quality,entry_entity',
                     'facet.pivot.mincount': 1,
                     'facet.sort': 'overall_quality+asc',
@@ -145,7 +213,35 @@ var PDBe;
                     'rows': 0,
                     'facet.limit': 10,
                     'facet.mincount': 1,
-                    'json.nl': 'map'
+                    'json.nl': 'map',
+                    'fq': 'status:REL'
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'proteinFamiliesTotalManager',
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'facet.pivot': 'pfam_name,molecule_name,inv_overall_quality,entry_entity',
+                    'facet.pivot.mincount': 1,
+                    'facet.sort': 'overall_quality+asc',
+                    'facet.field': 'pfam_name',
+                    'facet': true,
+                    'f.pfam_name.facet.limit': 100000,
+                    'f.pfam_name.facet.offset': 0,
+                    'rows': 0,
+                    'facet.limit': 20000,
+                    'facet.mincount': 1,
+                    'json.nl': 'map',
+                    'fq': 'status:REL'
                 }
             }
         ];
@@ -159,6 +255,7 @@ var PDBe;
         SolrApp.searchFieldsConfig = [
             {
                 categoryLabel: 'Text',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Text',
@@ -172,6 +269,7 @@ var PDBe;
                 ]
             }, {
                 categoryLabel: 'IDs',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'BMRB ID',
@@ -258,6 +356,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Fasta / Phmmer Sequence',
+                categoryActive: false,
                 categoryFields: [
                     {
                         groupLabel: 'FASTA Sequence',
@@ -289,6 +388,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Structural Genomics Center',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Center Name',
@@ -304,6 +404,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Author Name',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Author Name',
@@ -319,6 +420,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Molecules',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Molecule Name',
@@ -373,6 +475,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Assembly',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Composition',
@@ -419,6 +522,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'ATCC',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'ATCC ID',
@@ -433,6 +537,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Beam source',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Beam source name / type',
@@ -461,6 +566,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Biological',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Biological cell component',
@@ -496,6 +602,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'CATH',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'CATH architecture',
@@ -550,6 +657,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Cell',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Cell a',
@@ -609,6 +717,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Chimera',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Chimera',
@@ -624,6 +733,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Citation',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Authors',
@@ -667,6 +777,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Compound',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'ID',
@@ -720,6 +831,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Crystallisation ph/ reservoir',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'ph',
@@ -744,6 +856,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Data quality/ software ',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Data quality',
@@ -778,6 +891,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Deposition date/ site',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Deposition date',
@@ -803,6 +917,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Detector',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Detector',
@@ -828,6 +943,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Diffraction protocol',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Diffraction protocol',
@@ -843,6 +959,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'EC hierarchy name/ number',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'EC hierarchy name',
@@ -867,6 +984,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Entity',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Entity Id',
@@ -890,6 +1008,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Entry author',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Author',
@@ -913,6 +1032,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Organism scientific name',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Organism scientific name',
@@ -928,6 +1048,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Enzyme name',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Enzyme name',
@@ -953,6 +1074,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Experiment',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Experiment data available',
@@ -983,6 +1105,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Expression host data',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Genus',
@@ -1045,6 +1168,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Gene name',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Gene name',
@@ -1059,6 +1183,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Genus',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Genus',
@@ -1074,6 +1199,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Interacting ligands',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Interacting ligands',
@@ -1089,6 +1215,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Interpro accession/ name',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Interpro accession',
@@ -1113,6 +1240,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Journal',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Journal',
@@ -1164,6 +1292,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Max observed residues',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Max observed residues',
@@ -1178,6 +1307,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Microheterogeneity',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Microheterogeneity',
@@ -1193,6 +1323,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Model quality',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Model quality',
@@ -1207,6 +1338,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Mutation type',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Mutation',
@@ -1231,6 +1363,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'conf features',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'conf features',
@@ -1248,6 +1381,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Organism synonyms',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Organism synonyms',
@@ -1263,6 +1397,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Overall quality',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Overall quality',
@@ -1277,6 +1412,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'pfam accession/ name/ description',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'pfam accession',
@@ -1321,6 +1457,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Phasing method',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Phasing method',
@@ -1337,6 +1474,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Prd class/ name/ type',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Prd class',
@@ -1374,6 +1512,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Processing site',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Processing site',
@@ -1389,6 +1528,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Pubmed id/ authors',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Pubmed id',
@@ -1423,6 +1563,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Rank',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Rank',
@@ -1439,6 +1580,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Refinement software',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Refinement software',
@@ -1454,6 +1596,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Release date',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Release date',
@@ -1469,6 +1612,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Release year',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Release year',
@@ -1483,6 +1627,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Resolution',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Resolution',
@@ -1497,6 +1642,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Revision date',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Revision date',
@@ -1512,6 +1658,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Revision year',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Revision year',
@@ -1526,6 +1673,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Sample preparation method',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Sample preparation method',
@@ -1541,6 +1689,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'SCOP family/ fold',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'SCOP family',
@@ -1576,6 +1725,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Spacegroup',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Spacegroup',
@@ -1590,6 +1740,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Entry status',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Entry status',
@@ -1605,6 +1756,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'struct_asym_id',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'struct_asym_id',
@@ -1619,6 +1771,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Structure determination method',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Structure determination method',
@@ -1634,6 +1787,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Structure solution software',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Structure solution software',
@@ -1649,6 +1803,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Superkingdom',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Superkingdom',
@@ -1664,6 +1819,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Synchrotron beamline/ site',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Synchrotron beamline',
@@ -1689,6 +1845,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Title',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Title',
@@ -1704,6 +1861,7 @@ var PDBe;
             },
             {
                 categoryLabel: 'Uniprot accession/ coverage/ features',
+                categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Uniprot accession',

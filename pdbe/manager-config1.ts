@@ -4,8 +4,8 @@ namespace PDBe.SolrApp {
         {
             managerDetails: {
                 solrUrl: {
-                    normal: '//www.ebi.ac.uk/pdbe/search/pdb/',
-                    latest: '//www.ebi.ac.uk/pdbe/search/latest/'
+                    normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                    latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
                 },
                 name: 'facetsManager'
             },
@@ -46,17 +46,16 @@ namespace PDBe.SolrApp {
         {
             managerDetails: {
                 solrUrl: {
-                    normal: '//www.ebi.ac.uk/pdbe/search/pdb/',
-                    latest: '//www.ebi.ac.uk/pdbe/search/latest/'
+                    normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                    latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
                 },
-                name: 'entryManager',
+                name: 'entriesManager',
             },
             managerParams: {
                 'q': '*:*',
                 'group': true,
                 'group.field': ['pdb_id'],
                 'group.ngroups': true,
-                'sort':'overall_quality desc',
                 'rows':100,
                 'json.nl': 'map',
                 'fl': 
@@ -71,14 +70,13 @@ namespace PDBe.SolrApp {
                     normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
                     latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
                 },
-                name: 'moleculeManager',
+                name: 'macroMoleculesManager',
             },
             managerParams: {
                 'q': '*:*',
                 'group': true,
                 'group.field': ['pdb_id'],
                 'group.ngroups': true,
-                'group.facet': true,
                 'facet.pivot': 'molecule_name,inv_overall_quality,entry_entity',
                 'facet.pivot.mincount': 1,
                 'facet.sort': 'overall_quality+asc',
@@ -96,26 +94,25 @@ namespace PDBe.SolrApp {
         {
             managerDetails: {
                 solrUrl: {
-                    normal: '//www.ebi.ac.uk/pdbe/search/pdb/',
-                    latest: '//www.ebi.ac.uk/pdbe/search/latest/'
+                    normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                    latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
                 },
-                name: 'compoundManager'
+                name: 'macroMoleculesTotalManager',
             },
             managerParams: {
                 'q': '*:*',
                 'group': true,
                 'group.field': ['pdb_id'],
                 'group.ngroups': true,
-                'group.facet': true,
-                'facet.pivot': 'interacting_ligands,molecule_name,inv_overall_quality,entry_entity',
+                'facet.pivot': 'molecule_name,inv_overall_quality,entry_entity',
                 'facet.pivot.mincount': 1,
                 'facet.sort': 'overall_quality+asc',
-                'facet.field': 'interacting_ligands',
+                'facet.field': 'molecule_name',
                 'facet': true,
-                'f.interacting_ligands.facet.limit': 100,
-                'f.interacting_ligands.facet.offset': 0,
+                'f.molecule_name.facet.limit': 100000,
+                'f.molecule_name.facet.offset': 0,
                 'rows': 0,
-                'facet.limit': 10, // how many to fetch
+                'facet.limit': 20000, // how many to fetch
                 'facet.mincount': 1, // to only return a facet if it has a hit
                 'json.nl': 'map',
                 'fq':'status:REL'
@@ -124,17 +121,89 @@ namespace PDBe.SolrApp {
         {
             managerDetails: {
                 solrUrl: {
-                    normal: '//www.ebi.ac.uk/pdbe/search/pdb/',
-                    latest: '//www.ebi.ac.uk/pdbe/search/latest/'
+                    normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                    latest: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
                 },
-                name: 'seqFamilyManager',
+                name: 'pivotEntriesManager',
+            },
+            managerParams: {
+                'group': true,
+                'group.facet': true,
+                'group.ngroups': true,
+                'group.field': ['entry_entity'],
+                'fl': 
+                [
+                    'pdb_id','citation_title','citation_authors','title','experimental_method','entry_authors','pubmed_id','citation_year','journal','organism_scientific_name','assembly_composition','interacting_ligands','tax_id','resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'pfam_accession'
+                ]
+            }
+        },
+        {
+            managerDetails: {
+                solrUrl: {
+                    normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                    latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                },
+                name: 'compoundsManager'
             },
             managerParams: {
                 'q': '*:*',
                 'group': true,
                 'group.field': ['pdb_id'],
                 'group.ngroups': true,
-                'group.facet': true,
+                'facet.pivot': 'interacting_ligands,molecule_name,inv_overall_quality,entry_entity',
+                'facet.pivot.mincount': 1,
+                'facet.sort': 'overall_quality+asc',
+                'facet.field': 'interacting_ligands',
+                'facet': true,
+                'f.interacting_ligands.facet.limit': 100,
+                'f.interacting_ligands.facet.offset': 0,
+                'rows': 0,
+                'facet.limit': 20000, // how many to fetch
+                'facet.mincount': 1, // to only return a facet if it has a hit
+                'json.nl': 'map',
+                'fq':'status:REL'
+            }
+        },
+        {
+            managerDetails: {
+                solrUrl: {
+                    normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                    latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                },
+                name: 'compoundsTotalManager',
+            },
+            managerParams: {
+                'q': '*:*',
+                'group': true,
+                'group.field': ['pdb_id'],
+                'group.ngroups': true,
+                'facet.pivot': 'interacting_ligands,molecule_name,inv_overall_quality,entry_entity',
+                'facet.pivot.mincount': 1,
+                'facet.sort': 'overall_quality+asc',
+                'facet.field': 'interacting_ligands',
+                'facet': true,
+                'f.interacting_ligands.facet.limit': 100000,
+                'f.interacting_ligands.facet.offset': 0,
+                'rows': 0,
+                'facet.limit': 20000, // how many to fetch
+                'facet.mincount': 1, // to only return a facet if it has a hit
+                'json.nl': 'map',
+                'fq':'status:REL'
+            }
+        },
+        {
+            managerDetails: {
+                solrUrl: {
+                    normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                    latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                },
+                name: 'proteinFamiliesManager',
+            },
+            managerParams: {
+                'q': '*:*',
+                'group': true,
+                'group.field': ['pdb_id'],
+                'group.ngroups': true,
                 'facet.pivot': 'pfam_name,molecule_name,inv_overall_quality,entry_entity',
                 'facet.pivot.mincount': 1,
                 'facet.sort': 'overall_quality+asc',
@@ -145,7 +214,35 @@ namespace PDBe.SolrApp {
                 'rows': 0,
                 'facet.limit': 10, // how many to fetch
                 'facet.mincount': 1, // to only return a facet if it has a hit
-                'json.nl': 'map'
+                'json.nl': 'map',
+                'fq':'status:REL'
+            }
+        },
+        {
+            managerDetails: {
+                solrUrl: {
+                    normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                    latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                },
+                name: 'proteinFamiliesTotalManager',
+            },
+            managerParams: {
+                'q': '*:*',
+                'group': true,
+                'group.field': ['pdb_id'],
+                'group.ngroups': true,
+                'facet.pivot': 'pfam_name,molecule_name,inv_overall_quality,entry_entity',
+                'facet.pivot.mincount': 1,
+                'facet.sort': 'overall_quality+asc',
+                'facet.field': 'pfam_name',
+                'facet': true,
+                'f.pfam_name.facet.limit': 100000,
+                'f.pfam_name.facet.offset': 0,
+                'rows': 0,
+                'facet.limit': 20000, // how many to fetch
+                'facet.mincount': 1, // to only return a facet if it has a hit
+                'json.nl': 'map',
+                'fq':'status:REL'
             }
         }
     ]

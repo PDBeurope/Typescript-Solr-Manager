@@ -3,6 +3,7 @@ namespace PDBe.SolrApp {
     export const searchFieldsConfig = [
         {
             categoryLabel: 'Text',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Text',
@@ -16,6 +17,7 @@ namespace PDBe.SolrApp {
             ]
         },{
             categoryLabel: 'IDs',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'BMRB ID',
@@ -102,6 +104,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Fasta / Phmmer Sequence',
+            categoryActive: false,
             categoryFields: [
                 {
                    groupLabel: 'FASTA Sequence',
@@ -133,6 +136,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Structural Genomics Center',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Center Name',
@@ -148,6 +152,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Author Name',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Author Name',
@@ -163,6 +168,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Molecules',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Molecule Name',
@@ -217,6 +223,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Assembly',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Composition',
@@ -263,6 +270,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'ATCC',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'ATCC ID',
@@ -277,6 +285,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Beam source',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Beam source name / type',
@@ -307,6 +316,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Biological',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Biological cell component',
@@ -342,6 +352,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'CATH',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'CATH architecture',
@@ -396,6 +407,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Cell',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Cell a',
@@ -455,6 +467,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Chimera',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Chimera',
@@ -470,6 +483,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Citation',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Authors',
@@ -513,6 +527,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Compound',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'ID',
@@ -566,6 +581,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Crystallisation ph/ reservoir',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'ph',
@@ -590,6 +606,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Data quality/ software ',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Data quality',
@@ -624,6 +641,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Deposition date/ site',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Deposition date',
@@ -649,6 +667,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Detector',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Detector',
@@ -674,6 +693,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Diffraction protocol',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Diffraction protocol',
@@ -689,6 +709,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'EC hierarchy name/ number',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'EC hierarchy name',
@@ -713,6 +734,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Entity',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Entity Id',
@@ -736,6 +758,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Entry author',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Author',
@@ -759,6 +782,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Organism scientific name',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Organism scientific name',
@@ -774,6 +798,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Enzyme name',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Enzyme name',
@@ -799,6 +824,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Experiment',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Experiment data available',
@@ -829,6 +855,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Expression host data',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Genus',
@@ -891,6 +918,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Gene name',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Gene name',
@@ -905,6 +933,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Genus',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Genus',
@@ -920,6 +949,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Interacting ligands',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Interacting ligands',
@@ -935,6 +965,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Interpro accession/ name',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Interpro accession',
@@ -959,6 +990,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Journal',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Journal',
@@ -1010,6 +1042,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Max observed residues',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Max observed residues',
@@ -1024,6 +1057,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Microheterogeneity',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Microheterogeneity',
@@ -1039,6 +1073,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Model quality',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Model quality',
@@ -1053,6 +1088,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Mutation type',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Mutation',
@@ -1077,6 +1113,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'conf features',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'conf features',
@@ -1094,6 +1131,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Organism synonyms',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Organism synonyms',
@@ -1109,6 +1147,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Overall quality',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Overall quality',
@@ -1123,6 +1162,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'pfam accession/ name/ description',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'pfam accession',
@@ -1167,6 +1207,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Phasing method',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Phasing method',
@@ -1183,6 +1224,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Prd class/ name/ type',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Prd class',
@@ -1220,6 +1262,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Processing site',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Processing site',
@@ -1235,6 +1278,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Pubmed id/ authors',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Pubmed id',
@@ -1269,6 +1313,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Rank',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Rank',
@@ -1285,6 +1330,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Refinement software',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Refinement software',
@@ -1300,6 +1346,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Release date',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Release date',
@@ -1315,6 +1362,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Release year',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Release year',
@@ -1329,6 +1377,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Resolution',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Resolution',
@@ -1343,6 +1392,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Revision date',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Revision date',
@@ -1358,6 +1408,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Revision year',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Revision year',
@@ -1372,6 +1423,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Sample preparation method',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Sample preparation method',
@@ -1387,6 +1439,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'SCOP family/ fold',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'SCOP family',
@@ -1422,6 +1475,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Spacegroup',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Spacegroup',
@@ -1436,6 +1490,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Entry status',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Entry status',
@@ -1451,6 +1506,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'struct_asym_id',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'struct_asym_id',
@@ -1465,6 +1521,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Structure determination method',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Structure determination method',
@@ -1480,6 +1537,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Structure solution software',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Structure solution software',
@@ -1495,6 +1553,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Superkingdom',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Superkingdom',
@@ -1510,6 +1569,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Synchrotron beamline/ site',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Synchrotron beamline',
@@ -1535,6 +1595,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Title',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Title',
@@ -1550,6 +1611,7 @@ namespace PDBe.SolrApp {
         },
         {
             categoryLabel: 'Uniprot accession/ coverage/ features',
+            categoryActive: true,
             categoryFields: [
                 {
                    groupLabel: 'Uniprot accession',

@@ -244,6 +244,24 @@ namespace PDBe.SolrApp {
                 'json.nl': 'map',
                 'fq':'status:REL'
             }
+        },
+        {
+            managerDetails: {
+                solrUrl: {
+                    normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                    latest: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/'
+                },
+                name: 'validationAndPrintsManager',
+            },
+            managerParams: {
+                'group': true,
+                'group.field': ['pdb_id'],
+                'group.ngroups': true,
+                'fl': 
+                [
+                    'pdb_id','data_quality','model_quality','experiment_data_available'
+                ]
+            }
         }
     ]
 

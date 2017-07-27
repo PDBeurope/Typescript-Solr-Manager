@@ -40,7 +40,8 @@ namespace PDBe.SolrApp {
                 'f.release_year.facet.range.other' : 'between',
                 'f.release_year.facet.range.include' : 'upper',
                 'f.resolution.facet.range.other' : 'between',
-                'f.resolution.facet.range.include' : 'upper'
+                'f.resolution.facet.range.include' : 'upper',
+                'facet.threads': -1
             }
         },
         {
@@ -60,7 +61,7 @@ namespace PDBe.SolrApp {
                 'json.nl': 'map',
                 'fl': 
                 [
-                    'pdb_id','citation_title','citation_authors','title','experimental_method','entry_authors','pubmed_id','citation_year','journal','organism_scientific_name','assembly_composition','interacting_ligands','tax_id','resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name'
+                    'pdb_id','citation_title','citation_authors','title','experimental_method','entry_authors','pubmed_id','citation_year','journal','organism_scientific_name','assembly_composition','interacting_ligands','tax_id','resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'data_quality', 'model_quality', 'experiment_data_available'
                 ]
             }
         },
@@ -133,7 +134,7 @@ namespace PDBe.SolrApp {
                 'group.field': ['entry_entity'],
                 'fl': 
                 [
-                    'pdb_id','citation_title','citation_authors','title','experimental_method','entry_authors','pubmed_id','citation_year','journal','organism_scientific_name','assembly_composition','interacting_ligands','tax_id','resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'pfam_accession'
+                    'pdb_id','citation_title','citation_authors','title','experimental_method','entry_authors','pubmed_id','citation_year','journal','organism_scientific_name','assembly_composition','interacting_ligands','tax_id','resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'pfam_accession', 'data_quality', 'model_quality', 'experiment_data_available'
                 ]
             }
         },

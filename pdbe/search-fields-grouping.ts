@@ -29,9 +29,9 @@ namespace PDBe.SolrApp {
                    }]
                 },
                 {
-                   groupLabel: 'EMBD ID',
+                   groupLabel: 'EMDB ID',
                    groupFields: [{
-                       label: 'EMBD ID',
+                       label: 'EMDB ID',
                        name: ['emdb_id'],
                        type: 'string',
                        selectedValue: undefined

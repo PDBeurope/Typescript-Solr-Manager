@@ -41,7 +41,8 @@ var PDBe;
                     'f.release_year.facet.range.other': 'between',
                     'f.release_year.facet.range.include': 'upper',
                     'f.resolution.facet.range.other': 'between',
-                    'f.resolution.facet.range.include': 'upper'
+                    'f.resolution.facet.range.include': 'upper',
+                    'facet.threads': -1
                 }
             },
             {
@@ -60,7 +61,7 @@ var PDBe;
                     'rows': 100,
                     'json.nl': 'map',
                     'fl': [
-                        'pdb_id', 'citation_title', 'citation_authors', 'title', 'experimental_method', 'entry_authors', 'pubmed_id', 'citation_year', 'journal', 'organism_scientific_name', 'assembly_composition', 'interacting_ligands', 'tax_id', 'resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name'
+                        'pdb_id', 'citation_title', 'citation_authors', 'title', 'experimental_method', 'entry_authors', 'pubmed_id', 'citation_year', 'journal', 'organism_scientific_name', 'assembly_composition', 'interacting_ligands', 'tax_id', 'resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'data_quality', 'model_quality', 'experiment_data_available'
                     ]
                 }
             },
@@ -132,7 +133,7 @@ var PDBe;
                     'group.ngroups': true,
                     'group.field': ['entry_entity'],
                     'fl': [
-                        'pdb_id', 'citation_title', 'citation_authors', 'title', 'experimental_method', 'entry_authors', 'pubmed_id', 'citation_year', 'journal', 'organism_scientific_name', 'assembly_composition', 'interacting_ligands', 'tax_id', 'resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'pfam_accession'
+                        'pdb_id', 'citation_title', 'citation_authors', 'title', 'experimental_method', 'entry_authors', 'pubmed_id', 'citation_year', 'journal', 'organism_scientific_name', 'assembly_composition', 'interacting_ligands', 'tax_id', 'resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'pfam_accession', 'data_quality', 'model_quality', 'experiment_data_available'
                     ]
                 }
             },
@@ -283,7 +284,7 @@ var PDBe;
                 selectedValue: undefined
             },
             emdb_id: {
-                label: 'EMBD ID',
+                label: 'EMDB ID',
                 name: ['emdb_id'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 selectedValue: undefined
@@ -1185,9 +1186,9 @@ var PDBe;
                             }]
                     },
                     {
-                        groupLabel: 'EMBD ID',
+                        groupLabel: 'EMDB ID',
                         groupFields: [{
-                                label: 'EMBD ID',
+                                label: 'EMDB ID',
                                 name: ['emdb_id'],
                                 type: 'string',
                                 selectedValue: undefined

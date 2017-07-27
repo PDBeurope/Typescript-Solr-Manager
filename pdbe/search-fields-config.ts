@@ -15,7 +15,7 @@ namespace PDBe.SolrApp {
             selectedValue: undefined
         },
         emdb_id: {
-            label: 'EMBD ID',
+            label: 'EMDB ID',
             name: ['emdb_id'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             selectedValue: undefined

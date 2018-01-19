@@ -41,6 +41,27 @@
         }
       },
       "C:\\Users\\mandar\\Documents\\NetBeansProjects\\pdb-search-app\\material\\v7.0\\pdb-search-app"
+    ],
+    [
+      {
+        "raw": "typescript-solr-manager@git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
+        "scope": null,
+        "escapedName": "typescript-solr-manager",
+        "name": "typescript-solr-manager",
+        "rawSpec": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
+        "spec": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:PDBeurope/Typescript-Solr-Manager.git",
+          "sshUrl": "git+ssh://git@github.com/PDBeurope/Typescript-Solr-Manager.git",
+          "httpsUrl": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
+          "gitUrl": "git://github.com/PDBeurope/Typescript-Solr-Manager.git",
+          "shortcut": "github:PDBeurope/Typescript-Solr-Manager",
+          "directUrl": "https://raw.githubusercontent.com/PDBeurope/Typescript-Solr-Manager/master/package.json"
+        }
+      },
+      "C:\\Users\\mandar\\Documents\\NetBeansProjects\\pdb-search-app\\material\\v9.0\\pdb-search-app"
     ]
   ],
   "_from": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
@@ -49,10 +70,10 @@
   "_location": "/typescript-solr-manager",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
+    "raw": "typescript-solr-manager@git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
     "scope": null,
-    "escapedName": null,
-    "name": null,
+    "escapedName": "typescript-solr-manager",
+    "name": "typescript-solr-manager",
     "rawSpec": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
     "spec": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
     "type": "hosted",
@@ -67,14 +88,13 @@
     }
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git#8ac765a53f44c5695db8c84dce49d307d6cd67ff",
-  "_shasum": "6bc74b85f31632722c9b80d9ac4f425516fd11f8",
+  "_resolved": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git#fd59ba017555a54e24362e8fcab5b71bec74a5d2",
+  "_shasum": "509d19be431d6009ebc5d04022ee906ca6aa762c",
   "_shrinkwrap": null,
-  "_spec": "git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
-  "_where": "C:\\Users\\mandar\\Documents\\NetBeansProjects\\pdb-search-app\\material\\v7.0\\pdb-search-app",
+  "_spec": "typescript-solr-manager@git+https://github.com/PDBeurope/Typescript-Solr-Manager.git",
+  "_where": "C:\\Users\\mandar\\Documents\\NetBeansProjects\\pdb-search-app\\material\\v9.0\\pdb-search-app",
   "author": {
     "name": "Mandar Deshpande"
   },

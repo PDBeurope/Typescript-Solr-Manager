@@ -6,10 +6,10 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
-                    name: 'facetsManager'
+                    name: 'expMethodFacetManager'
                 },
                 managerParams: {
                     'q': '*:*',
@@ -19,27 +19,1034 @@ var PDBe;
                     'group.facet': true,
                     'facet': true,
                     'rows': '0',
-                    'facet.limit': 100,
+                    'facet.limit': -1,
                     'facet.mincount': 1,
                     'facet.sort': 'count',
                     'json.nl': 'map',
                     'facet.field': [
-                        'experimental_method', 'entry_authors', 'pfam_name', 'superkingdom', 'genus', 'organism_scientific_name', 'citation_year', 'spacegroup', 'biological_process', 'biological_function', 'biological_cell_component', 'journal', 'assembly_composition', 'assembly_form', 'assembly_type', 'refinement_software', 'beam_source_type', 'detector', 'detector_type', 'diffraction_protocol', 'molecule_name', 'status', 'ec_number', 'cath_class', 'cath_topology', 'gene_name', 'compound_name', 'interpro_name', 'scop_class', 'scop_family', 'scop_fold', 'citation_authors', 'interacting_molecules', 'interacting_ligands', 'molecule_type', 'beam_source_name', 'synchrotron_site'
+                        'experimental_method'
                     ],
-                    'facet.range': ['deposition_year', 'release_year', 'resolution'],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'entryAuthorFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'entry_authors'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'pfamFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'pfam_name'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'superkingdomFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'superkingdom'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'genusFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'genus'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'orgSciNameFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'organism_scientific_name'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'citationYearFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'citation_year'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'spacegroupFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'spacegroup'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'biologicalProcessFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'biological_process'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'biologicalFunctionFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'biological_function'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'bioCellComponentFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'biological_cell_component'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'bioCellComponentFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'biological_cell_component'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'journalFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'journal'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'assemblyCompositionFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'assembly_composition'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'assemblyFormFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'assembly_form'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'assemblyTypeFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'assembly_type'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'refSoftFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'refinement_software'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'beamSrcTypeFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'beam_source_type'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'detectorFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'detector'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'detectorTypeFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'detector_type'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'diffProtocolFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'diffraction_protocol'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'moleNameFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'molecule_name'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'statusFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'status'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'ecNumberFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'ec_number'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'cathClassFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'cath_class'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'cathTopologyFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'cath_topology'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'geneNameFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'gene_name'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'interproNameFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'interpro_name'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'scopClassFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'scop_class'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'scopFamilyFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'scop_family'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'scopFoldFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'scop_fold'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'citAuthorsFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'citation_authors'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'interactingMolFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'interacting_molecules'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'interactingLigandsFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'interacting_ligands'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'molTypeFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'molecule_type'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'beamSrcNameFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'beam_source_name'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'synchrotronSiteFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.field': [
+                        'synchrotron_site'
+                    ],
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'depYearFacetManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.range': ['deposition_year'],
                     'f.deposition_year.facet.range.start': '1970',
                     'f.deposition_year.facet.range.end': '2050',
                     'f.deposition_year.facet.range.gap': '5',
+                    'f.deposition_year.facet.range.other': 'between',
+                    'f.deposition_year.facet.range.include': 'upper',
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'relYearFacetsManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.range': ['release_year'],
                     'f.release_year.facet.range.start': '1970',
                     'f.release_year.facet.range.end': '2050',
                     'f.release_year.facet.range.gap': '5',
+                    'f.release_year.facet.range.other': 'between',
+                    'f.release_year.facet.range.include': 'upper',
+                    'facet.threads': -1
+                }
+            },
+            {
+                managerDetails: {
+                    solrUrl: {
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                    },
+                    name: 'resolutionFacetsManager'
+                },
+                managerParams: {
+                    'q': '*:*',
+                    'group': true,
+                    'group.field': ['pdb_id'],
+                    'group.ngroups': true,
+                    'group.facet': true,
+                    'facet': true,
+                    'rows': '0',
+                    'facet.limit': -1,
+                    'facet.mincount': 1,
+                    'facet.sort': 'count',
+                    'json.nl': 'map',
+                    'facet.range': ['resolution'],
                     'f.resolution.facet.range.start': '0.0',
                     'f.resolution.facet.range.end': '100',
                     'f.resolution.facet.range.gap': '0.5',
-                    'f.deposition_year.facet.range.other': 'between',
-                    'f.deposition_year.facet.range.include': 'upper',
-                    'f.release_year.facet.range.other': 'between',
-                    'f.release_year.facet.range.include': 'upper',
                     'f.resolution.facet.range.other': 'between',
                     'f.resolution.facet.range.include': 'upper',
                     'facet.threads': -1
@@ -48,8 +1055,8 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
                     name: 'entriesManager',
                 },
@@ -61,15 +1068,15 @@ var PDBe;
                     'rows': 100,
                     'json.nl': 'map',
                     'fl': [
-                        'pdb_id', 'citation_title', 'citation_authors', 'title', 'experimental_method', 'entry_authors', 'pubmed_id', 'citation_year', 'journal', 'organism_scientific_name', 'assembly_composition', 'interacting_ligands', 'tax_id', 'resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'data_quality', 'model_quality', 'experiment_data_available'
+                        'pdb_id', 'citation_title', 'citation_authors', 'title', 'experimental_method', 'entry_authors', 'pubmed_id', 'citation_year', 'journal', 'organism_scientific_name', 'assembly_composition', 'interacting_ligands', 'tax_id', 'resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'data_quality', 'model_quality', 'experiment_data_available', 'deposition_date', 'release_year'
                     ]
                 }
             },
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
                     name: 'macroMoleculesManager',
                 },
@@ -95,8 +1102,8 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
                     name: 'macroMoleculesTotalManager',
                 },
@@ -122,8 +1129,8 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
                     },
                     name: 'pivotEntriesManager',
                 },
@@ -133,15 +1140,15 @@ var PDBe;
                     'group.ngroups': true,
                     'group.field': ['entry_entity'],
                     'fl': [
-                        'pdb_id', 'citation_title', 'citation_authors', 'title', 'experimental_method', 'entry_authors', 'pubmed_id', 'citation_year', 'journal', 'organism_scientific_name', 'assembly_composition', 'interacting_ligands', 'tax_id', 'resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'pfam_accession', 'data_quality', 'model_quality', 'experiment_data_available'
+                        'pdb_id', 'citation_title', 'citation_authors', 'title', 'experimental_method', 'entry_authors', 'pubmed_id', 'citation_year', 'journal', 'organism_scientific_name', 'assembly_composition', 'interacting_ligands', 'tax_id', 'resolution', 'status', 'release_date', 'prefered_assembly_id', 'entry_author_list', 'entry_organism_scientific_name', 'pfam_accession', 'data_quality', 'model_quality', 'experiment_data_available', 'deposition_date', 'release_year'
                     ]
                 }
             },
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
                     name: 'compoundsManager'
                 },
@@ -167,8 +1174,8 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
                     name: 'compoundsTotalManager',
                 },
@@ -194,8 +1201,8 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
                     name: 'proteinFamiliesManager',
                 },
@@ -212,7 +1219,7 @@ var PDBe;
                     'f.pfam_name.facet.limit': 100,
                     'f.pfam_name.facet.offset': 0,
                     'rows': 0,
-                    'facet.limit': 10,
+                    'facet.limit': -1,
                     'facet.mincount': 1,
                     'json.nl': 'map',
                     'fq': 'status:REL'
@@ -221,8 +1228,8 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
                     },
                     name: 'proteinFamiliesTotalManager',
                 },
@@ -248,8 +1255,8 @@ var PDBe;
             {
                 managerDetails: {
                     solrUrl: {
-                        normal: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/',
-                        latest: '//wwwdev.ebi.ac.uk/pdbe/search/pdb/'
+                        normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                        latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/'
                     },
                     name: 'validationAndPrintsManager',
                 },
@@ -266,6 +1273,52 @@ var PDBe;
     })(SolrApp = PDBe.SolrApp || (PDBe.SolrApp = {}));
 })(PDBe || (PDBe = {}));
 ;
+/*
+{
+            managerDetails: {
+                solrUrl: {
+                    normal: 'https://wwwdev.ebi.ac.uk/pdbe/search/pdb/',
+                    latest: 'https://wwwdev.ebi.ac.uk/pdbe/search/latest/'
+                },
+                name: 'facetsManager'
+            },
+            managerParams: {
+                'q': '*:*',
+                'group': true,
+                'group.field': ['pdb_id'],
+                'group.ngroups': true,
+                'group.facet': true,
+                'facet': true,
+                'rows': '0',
+                'facet.limit': 100,
+                'facet.mincount': 1,
+                'facet.sort': 'count',
+                'json.nl': 'map',
+                'facet.field':
+                    [
+                        'experimental_method', 'entry_authors', 'pfam_name','superkingdom','genus','organism_scientific_name','citation_year','spacegroup','biological_process','biological_function','biological_cell_component','journal','assembly_composition','assembly_form','assembly_type','refinement_software','beam_source_type','detector','detector_type','diffraction_protocol','molecule_name','status','ec_number','cath_class','cath_topology','gene_name', 'compound_name','interpro_name','scop_class','scop_family','scop_fold','citation_authors','interacting_molecules','interacting_ligands','molecule_type','beam_source_name', 'synchrotron_site'
+                    ],
+                'facet.range':['deposition_year','release_year','resolution'],
+                'f.deposition_year.facet.range.start':'1970',
+                'f.deposition_year.facet.range.end':'2050',
+                'f.deposition_year.facet.range.gap':'5',
+                'f.release_year.facet.range.start':'1970',
+                'f.release_year.facet.range.end':'2050',
+                'f.release_year.facet.range.gap':'5',
+                'f.resolution.facet.range.start':'0.0',
+                'f.resolution.facet.range.end':'100',
+                'f.resolution.facet.range.gap':'0.5',
+                'f.deposition_year.facet.range.other' : 'between',
+                'f.deposition_year.facet.range.include' : 'upper',
+                'f.release_year.facet.range.other' : 'between',
+                'f.release_year.facet.range.include' : 'upper',
+                'f.resolution.facet.range.other' : 'between',
+                'f.resolution.facet.range.include' : 'upper',
+                'facet.threads': -1
+            }
+        }
+'compound_name'
+*/ 
 var PDBe;
 (function (PDBe) {
     var SolrApp;
@@ -295,18 +1348,6 @@ var PDBe;
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 selectedValue: undefined
             },
-            interacting_entity_id: {
-                label: 'Interacting entity ID',
-                name: ['interacting_entity_id'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
-                selectedValue: undefined
-            },
-            interacting_entry_id: {
-                label: 'Interacting entry ID',
-                name: ['interacting_entry_id'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
-                selectedValue: undefined
-            },
             interpro_accession: {
                 label: 'Interpro accession',
                 name: ['interpro_accession'],
@@ -319,12 +1360,6 @@ var PDBe;
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 selectedValue: undefined
             },
-            prefered_assembly_id: {
-                label: 'Prefered assembly ID',
-                name: ['prefered_assembly_id'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
-                selectedValue: undefined
-            },
             psi_id: {
                 label: 'PSI ID',
                 name: ['psi_id'],
@@ -332,8 +1367,9 @@ var PDBe;
                 selectedValue: undefined
             },
             fasta_sequence: {
-                label: 'FASTA Sequence',
-                name: ['xjoin_fasta=true&bf=fasta(percentIdentity)&xjoin_fasta.external.sequence'],
+                label: 'Using FASTA',
+                name: ['fasta_sequence'],
+                queryField: 'xjoin_fasta=true&bf=fasta(percentIdentity)&xjoin_fasta.external.sequence',
                 type: 'largeString', relation: 'Equal to', condition: 'OR',
                 dataType: 'fastaSequence',
                 fqValue: '{!xjoin}xjoin_fasta',
@@ -342,8 +1378,9 @@ var PDBe;
                 appendValueToFq: false
             },
             phmmer_sequence: {
-                label: 'Phmmer Sequence',
-                name: ['xjoin_phmmer.fl=*&xjoin_phmmer.fl=*&xjoin_phmmer=true&xjoin_phmmer.external.sequence'],
+                label: 'Using Phmmer',
+                name: ['phmmer_sequence'],
+                queryField: 'xjoin_phmmer.fl=*&xjoin_phmmer=true&xjoin_phmmer.external.sequence',
                 type: 'largeString', relation: 'Equal to', condition: 'OR',
                 dataType: 'phmmerSequence',
                 fqValue: '{!xjoin}xjoin_phmmer',
@@ -372,31 +1409,18 @@ var PDBe;
                 autocompleteField: 'all_authors',
                 selectedValue: undefined
             },
-            molecule_name: {
-                label: 'Molecule Name',
-                name: ['molecule_name'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
-                autocompleteField: 'molecule_name',
-                selectedValue: undefined
-            },
             all_molecule_names: {
-                label: 'All Molecule Name',
+                label: 'All Molecule Names',
                 name: ['all_molecule_names'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 autocompleteField: 'all_molecule_names',
                 selectedValue: undefined
             },
-            molecule_sequence: {
-                label: 'Molecule sequence',
-                name: ['molecule_sequence'],
+            molecule_name: {
+                label: 'Molecule Name',
+                name: ['molecule_name'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
-                selectedValue: undefined
-            },
-            molecule_synonym: {
-                label: 'Molecule synonym',
-                name: ['molecule_synonym'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
-                autocompleteField: 'molecule_synonym',
+                autocompleteField: 'molecule_name',
                 selectedValue: undefined
             },
             molecule_type: {
@@ -410,7 +1434,14 @@ var PDBe;
                 label: 'Composition',
                 name: ['assembly_composition'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
-                autocompleteField: 'assembly_composition',
+                value: ["protein structure", "protein/protein complex", "DNA/protein complex",
+                    "RNA/protein complex", "DNA structure", "RNA structure", "RNA/RNA complex",
+                    "DNA/RNA/protein complex", "DNA/RNA hybrid structure", "DNA/RNA complex",
+                    "DNA/DNA/RNA hybrid/protein complex", "D-protein/protein complex", "DNA/DNA complex",
+                    "D-protein structure", "DNA/RNA hybrid/RNA complex", "DNA/RNA hybrid/protein complex",
+                    "DNA/DNA/RNA hybrid complex", "DNA/RNA hybrid/RNA/protein complex",
+                    "DNA/RNA hybrid/DNA/RNA hybrid complex", "RNA/other complex", "RNA/polysaccharide complex",
+                    "other/protein complex", "D-protein/RNA complex", "other structure"],
                 selectedValue: undefined
             },
             assembly_form: {
@@ -420,14 +1451,8 @@ var PDBe;
                 value: ['homo', 'hetero'],
                 selectedValue: undefined
             },
-            assembly_id: {
-                label: 'ID',
-                name: ['assembly_id'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
-                selectedValue: undefined
-            },
             assembly_type: {
-                label: 'Type',
+                label: 'Polymer count',
                 label2: '-mer',
                 name: ['assembly_type'],
                 type: 'int', relation: '=', condition: 'OR',
@@ -442,7 +1467,7 @@ var PDBe;
                 selectedValue: undefined
             },
             beam_source_name: {
-                label: 'Source name',
+                label: 'Beam source name',
                 name: ['beam_source_name'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 value: ["Synchrotron", "Rotating anode", "Sealed tube", "Free-electron laser", "Neutron source",
@@ -454,9 +1479,10 @@ var PDBe;
                 selectedValue: undefined
             },
             beam_source_type: {
-                label: 'Source type',
+                label: 'Beam source type',
                 name: ['beam_source_type'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
+                autocompleteField: 'beam_source_type',
                 selectedValue: undefined
             },
             biological_cell_component: {
@@ -577,7 +1603,7 @@ var PDBe;
                 selectedValue: undefined
             },
             citation_year: {
-                label: 'Year',
+                label: 'Publication Year',
                 name: ['citation_year'],
                 type: 'int', relation: '=', condition: 'OR',
                 validation: 'numberOnly',
@@ -617,13 +1643,13 @@ var PDBe;
                 selectedValue: undefined
             },
             crystallisation_ph: {
-                label: 'ph',
+                label: 'pH',
                 name: ['crystallisation_ph'],
                 type: 'float', relation: '=', condition: 'OR',
                 selectedValue: undefined
             },
             crystallisation_reservoir: {
-                label: 'Reservoir',
+                label: 'Reservoir solution',
                 name: ['crystallisation_reservoir'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 autocompleteField: 'crystallisation_reservoir',
@@ -654,6 +1680,12 @@ var PDBe;
                 name: ['deposition_date'],
                 type: 'date', relation: '=', condition: 'OR',
                 format: 'YYYY-MM-DDThh:mm:ssZ',
+                selectedValue: undefined
+            },
+            deposition_year: {
+                label: 'Deposition year',
+                name: ['deposition_year'],
+                type: 'int', relation: '=', condition: 'OR',
                 selectedValue: undefined
             },
             deposition_site: {
@@ -704,7 +1736,7 @@ var PDBe;
                 selectedValue: undefined
             },
             entity_weight: {
-                label: 'Entity weight',
+                label: 'Macromolecule molecular weight',
                 name: ['entity_weight'],
                 type: 'float', relation: '=', condition: 'OR',
                 selectedValue: undefined
@@ -721,11 +1753,11 @@ var PDBe;
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 selectedValue: undefined
             },
-            entry_organism_scientific_name: {
+            organism_scientific_name: {
                 label: 'Organism scientific name',
-                name: ['entry_organism_scientific_name'],
+                name: ['organism_scientific_name'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
-                autocompleteField: 'entry_organism_scientific_name',
+                autocompleteField: 'organism_scientific_name',
                 selectedValue: undefined
             },
             enzyme_name: {
@@ -794,12 +1826,6 @@ var PDBe;
                 autocompleteField: 'expression_host_synonyms',
                 selectedValue: undefined
             },
-            tax_id: {
-                label: 'Tax id',
-                name: ['tax_id'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
-                selectedValue: undefined
-            },
             gene_name: {
                 label: 'Gene name',
                 name: ['gene_name'],
@@ -811,6 +1837,13 @@ var PDBe;
                 name: ['genus'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 autocompleteField: 'genus',
+                selectedValue: undefined
+            },
+            interacting_molecules: {
+                label: 'Interacting molecule',
+                name: ['interacting_molecules'],
+                type: 'string', relation: 'Equal to', condition: 'OR',
+                autocompleteField: 'interacting_molecules',
                 selectedValue: undefined
             },
             interacting_ligands: {
@@ -828,28 +1861,10 @@ var PDBe;
                 selectedValue: undefined
             },
             journal: {
-                label: 'Journal',
+                label: 'Journal name',
                 name: ['journal'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 autocompleteField: 'journal',
-                selectedValue: undefined
-            },
-            journal_first_page: {
-                label: 'Journal first page',
-                name: ['journal_first_page'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
-                selectedValue: undefined
-            },
-            journal_last_page: {
-                label: 'Journal last page',
-                name: ['journal_last_page'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
-                selectedValue: undefined
-            },
-            journal_page: {
-                label: 'Journal page',
-                name: ['journal_page'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
                 selectedValue: undefined
             },
             journal_volume: {
@@ -864,10 +1879,11 @@ var PDBe;
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 selectedValue: undefined
             },
-            model_quality: {
-                label: 'Model quality',
-                name: ['model_quality'],
-                type: 'float', relation: '=', condition: 'OR',
+            microheterogeneity: {
+                label: 'Microheterogeneity',
+                name: ['microheterogeneity'],
+                type: 'string', relation: 'Equal to', condition: 'OR',
+                value: ['y', 'n'],
                 selectedValue: undefined
             },
             mutation: {
@@ -884,7 +1900,7 @@ var PDBe;
                 selectedValue: undefined
             },
             na_conf_features: {
-                label: 'conf features',
+                label: 'Nucleic acid conf features',
                 name: ['na_conf_features'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 value: ["double helix", "a-form double helix", "mismatched base pair", "hairpin loop",
@@ -899,34 +1915,28 @@ var PDBe;
                 autocompleteField: 'organism_synonyms',
                 selectedValue: undefined
             },
-            overall_quality: {
-                label: 'Overall quality',
-                name: ['overall_quality'],
-                type: 'float', relation: '=', condition: 'OR',
-                selectedValue: undefined
-            },
             pfam_accession: {
-                label: 'pfam accession',
+                label: 'Pfam accession',
                 name: ['pfam_accession'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 selectedValue: undefined
             },
             pfam_clan_name: {
-                label: 'pfam name',
+                label: 'Pfam name',
                 name: ['pfam_clan_name'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 autocompleteField: 'pfam_clan_name',
                 selectedValue: undefined
             },
             pfam_description: {
-                label: 'pfam description',
+                label: 'Pfam description',
                 name: ['pfam_description'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 autocompleteField: 'pfam_description',
                 selectedValue: undefined
             },
             pfam_name: {
-                label: 'pfam name',
+                label: 'Pfam name',
                 name: ['pfam_name'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 autocompleteField: 'pfam_name',
@@ -983,19 +1993,12 @@ var PDBe;
                 autocompleteField: 'pubmed_authors',
                 selectedValue: undefined
             },
-            pubmed_author_list: {
-                label: 'Pubmed author list',
-                name: ['pubmed_author_list'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
-                autocompleteField: 'pubmed_author_list',
-                selectedValue: undefined
-            },
             rank: {
-                label: 'Rank',
+                label: 'Taxonomic Rank',
                 name: ['rank'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
-                value: ["species", "superkingdom", "genus", "family", "phylum", "order", "class",
-                    "kingdom", "subfamily"],
+                value: ["superkingdom", "kingdom", "phylum", "class", "order",
+                    "family", "subfamily", "genus", "species"],
                 selectedValue: undefined
             },
             refinement_software: {
@@ -1024,7 +2027,7 @@ var PDBe;
                 type: 'float', relation: '=', condition: 'OR',
                 selectedValue: undefined
             },
-            revision: {
+            revision_date: {
                 label: 'Revision date',
                 name: ['revision'],
                 type: 'date', relation: '=', condition: 'OR',
@@ -1042,6 +2045,13 @@ var PDBe;
                 name: ['sample_preparation_method'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 value: ["Engineered", "Natural", "Synthetic"],
+                selectedValue: undefined
+            },
+            scop_class: {
+                label: 'SCOP class',
+                name: ['scop_class'],
+                type: 'string', relation: 'Equal to', condition: 'OR',
+                autocompleteField: 'scop_class',
                 selectedValue: undefined
             },
             scop_family: {
@@ -1069,6 +2079,7 @@ var PDBe;
                 label: 'Spacegroup',
                 name: ['spacegroup'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
+                autocompleteField: 'spacegroup',
                 selectedValue: undefined
             },
             status: {
@@ -1076,12 +2087,6 @@ var PDBe;
                 name: ['status'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 value: ["REL", "WDRN", "HPUB", "OBS", "AUTH", "PROC", "HOLD", "REPL", "POLC", "WAIT", "AUCO", "REFI"],
-                selectedValue: undefined
-            },
-            struct_asym_id: {
-                label: 'struct_asym_id',
-                name: ['struct_asym_id'],
-                type: 'string', relation: 'Equal to', condition: 'OR',
                 selectedValue: undefined
             },
             structure_determination_method: {
@@ -1132,16 +2137,11 @@ var PDBe;
                 type: 'string', relation: 'Equal to', condition: 'OR',
                 selectedValue: undefined
             },
-            uniprot_coverage: {
-                label: 'Uniprot coverage',
-                name: ['uniprot_coverage'],
-                type: 'float', relation: '=', condition: 'OR',
-                selectedValue: undefined
-            },
             uniprot_features: {
                 label: 'Uniprot features',
                 name: ['uniprot_features'],
                 type: 'string', relation: 'Equal to', condition: 'OR',
+                autocompleteField: 'uniprot_features',
                 selectedValue: undefined
             },
             uniprot_id: {
@@ -1177,6 +2177,14 @@ var PDBe;
                 categoryActive: true,
                 categoryFields: [
                     {
+                        groupLabel: 'PDB ID',
+                        groupFields: [{
+                                label: 'PDB ID',
+                                name: ['pdb_id'],
+                                type: 'string',
+                                selectedValue: undefined
+                            }]
+                    }, {
                         groupLabel: 'BMRB ID',
                         groupFields: [{
                                 label: 'BMRB ID',
@@ -1204,51 +2212,6 @@ var PDBe;
                             }]
                     },
                     {
-                        groupLabel: 'Interacting entity ID',
-                        groupFields: [{
-                                label: 'Interacting entity ID',
-                                name: ['interacting_entity_id'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Interacting entry ID',
-                        groupFields: [{
-                                label: 'Interacting entry ID',
-                                name: ['interacting_entry_id'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Interpro accession',
-                        groupFields: [{
-                                label: 'Interpro accession',
-                                name: ['interpro_accession'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'PDB ID',
-                        groupFields: [{
-                                label: 'PDB ID',
-                                name: ['pdb_id'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Prefered assembly ID',
-                        groupFields: [{
-                                label: 'Prefered assembly ID',
-                                name: ['prefered_assembly_id'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
                         groupLabel: 'PSI ID',
                         groupFields: [{
                                 label: 'PSI ID',
@@ -1260,14 +2223,31 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'Fasta / Phmmer Sequence',
-                categoryActive: false,
+                categoryLabel: 'Title',
+                categoryActive: true,
                 categoryFields: [
                     {
-                        groupLabel: 'FASTA Sequence',
+                        groupLabel: 'Title',
+                        groupFields: [{
+                                label: 'Title',
+                                name: ['title'],
+                                type: 'string',
+                                autocompleteField: 'title',
+                                selectedValue: undefined
+                            }]
+                    }
+                ]
+            },
+            {
+                categoryLabel: 'Sequence search',
+                categoryActive: true,
+                categoryFields: [
+                    {
+                        groupLabel: 'Using FASTA',
                         groupFields: [{
                                 label: 'FASTA Sequence',
-                                name: ['xjoin_fasta=true&bf=fasta(percentIdentity)&xjoin_fasta.external.sequence'],
+                                name: ['fasta_sequence'],
+                                queryField: 'xjoin_fasta=true&bf=fasta(percentIdentity)&xjoin_fasta.external.sequence',
                                 type: 'largeString',
                                 dataType: 'fastaSequence',
                                 fqValue: '{!xjoin}xjoin_fasta',
@@ -1277,32 +2257,17 @@ var PDBe;
                             }]
                     },
                     {
-                        groupLabel: 'Phmmer Sequence',
+                        groupLabel: 'Using Phmmer',
                         groupFields: [{
                                 label: 'Phmmer Sequence',
-                                name: ['xjoin_phmmer.fl=*&xjoin_phmmer.fl=*&xjoin_phmmer=true&xjoin_phmmer.external.sequence'],
+                                name: ['phmmer_sequence'],
+                                queryField: 'xjoin_phmmer.fl=*&xjoin_phmmer=true&xjoin_phmmer.external.sequence',
                                 type: 'largeString',
                                 dataType: 'phmmerSequence',
                                 fqValue: '{!xjoin}xjoin_phmmer',
                                 selectedValue: undefined,
                                 appendValueToParams: true,
                                 appendValueToFq: false
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Structural Genomics Center',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Center Name',
-                        groupFields: [{
-                                label: 'Center Name',
-                                name: ['SG_center_name', 'SG_full_name'],
-                                type: 'string',
-                                autocompleteField: 'SG_full_name',
-                                selectedValue: undefined
                             }]
                     }
                 ]
@@ -1320,13 +2285,33 @@ var PDBe;
                                 autocompleteField: 'all_authors',
                                 selectedValue: undefined
                             }]
+                    },
+                    {
+                        groupLabel: 'Center Name',
+                        groupFields: [{
+                                label: 'Center Name',
+                                name: ['SG_center_name', 'SG_full_name'],
+                                type: 'string',
+                                autocompleteField: 'SG_full_name',
+                                selectedValue: undefined
+                            }]
                     }
                 ]
             },
             {
-                categoryLabel: 'Molecules',
+                categoryLabel: 'Macromolecules',
                 categoryActive: true,
                 categoryFields: [
+                    {
+                        groupLabel: 'All Molecule Names',
+                        groupFields: [{
+                                label: 'All Molecule Names',
+                                name: ['all_molecule_names'],
+                                type: 'string',
+                                autocompleteField: 'all_molecule_names',
+                                selectedValue: undefined
+                            }]
+                    },
                     {
                         groupLabel: 'Molecule Name',
                         groupFields: [{
@@ -1338,41 +2323,30 @@ var PDBe;
                             }]
                     },
                     {
-                        groupLabel: 'All Molecule Name',
-                        groupFields: [{
-                                label: 'All Molecule Name',
-                                name: ['all_molecule_names'],
-                                type: 'string',
-                                autocompleteField: 'all_molecule_names',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Molecule sequence',
-                        groupFields: [{
-                                label: 'Molecule sequence',
-                                name: ['molecule_sequence'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Molecule synonym',
-                        groupFields: [{
-                                label: 'Molecule synonym',
-                                name: ['molecule_synonym'],
-                                type: 'string',
-                                autocompleteField: 'molecule_synonym',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
                         groupLabel: 'Molecule type',
                         groupFields: [{
                                 label: 'Molecule type',
                                 name: ['molecule_type'],
                                 type: 'string',
                                 value: ["Protein", "DNA", "RNA", "DNA/RNA hybrid", "D-Protein", "Polysaccharide(D)"],
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Gene name',
+                        groupFields: [{
+                                label: 'Gene name',
+                                name: ['gene_name'],
+                                type: 'string',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Macromolecule molecular weight',
+                        groupFields: [{
+                                label: 'Macromolecule molecular weight',
+                                name: ['entity_weight'],
+                                type: 'float',
                                 selectedValue: undefined
                             }]
                     }
@@ -1403,18 +2377,9 @@ var PDBe;
                             }]
                     },
                     {
-                        groupLabel: 'ID',
+                        groupLabel: 'Polymer count',
                         groupFields: [{
-                                label: 'ID',
-                                name: ['assembly_id'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Type',
-                        groupFields: [{
-                                label: 'Type',
+                                label: 'Polymer count',
                                 label2: '-mer',
                                 name: ['assembly_type'],
                                 type: 'int',
@@ -1426,51 +2391,7 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'ATCC',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'ATCC ID',
-                        groupFields: [{
-                                label: 'ATCC ID',
-                                name: ['atcc'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Beam source',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Beam source name / type',
-                        groupFields: [
-                            {
-                                label: 'Source name',
-                                name: ['beam_source_name'],
-                                type: 'string',
-                                value: ["Synchrotron", "Rotating anode", "Sealed tube", "Free-electron laser", "Neutron source",
-                                    "Electron microscope", "TRANSMISSION ELECTRON MICROSCOPE", "NEUTRON SPALLATION SOURCE",
-                                    "Bruker", "Copper", "FRM II", "In-house source", "Compact light source",
-                                    "FRM-II NUCLEAR REACTOR", "IMAGINE CG4D HFIR", "LCLS", "MLZ", "MaruX home source",
-                                    "NUCLEAR REACTOR (INSTITUT LAUE LAN", "Other", "SEALED X-RAY TUBE", "SNS", "SNS/ORNL",
-                                    "SPALLATION"],
-                                selectedValue: undefined
-                            },
-                            {
-                                label: 'Source type',
-                                name: ['beam_source_type'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Biological',
+                categoryLabel: 'GO terms',
                 categoryActive: true,
                 categoryFields: [
                     {
@@ -1506,62 +2427,7 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'CATH',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'CATH architecture',
-                        groupFields: [{
-                                label: 'CATH architecture',
-                                name: ['cath_architecture'],
-                                type: 'string',
-                                autocompleteField: 'cath_architecture',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'CATH class',
-                        groupFields: [{
-                                label: 'CATH class',
-                                name: ['cath_class'],
-                                type: 'string',
-                                value: ["Alpha Beta", "Mainly Beta", "Mainly Alpha", "Few Secondary Structures"],
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'CATH code',
-                        groupFields: [{
-                                label: 'CATH code',
-                                name: ['cath_code'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Homologous superfamily',
-                        groupFields: [{
-                                label: 'Homologous superfamily',
-                                name: ['cath_homologous_superfamily'],
-                                type: 'string',
-                                autocompleteField: 'cath_homologous_superfamily',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'CATH topology',
-                        groupFields: [{
-                                label: 'CATH topology',
-                                name: ['cath_topology'],
-                                type: 'string',
-                                autocompleteField: 'cath_topology',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Cell',
+                categoryLabel: 'Crystallographic cell parameters',
                 categoryActive: true,
                 categoryFields: [
                     {
@@ -1637,50 +2503,6 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'Citation',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Authors',
-                        groupFields: [{
-                                label: 'Authors',
-                                name: ['citation_authors'],
-                                type: 'string',
-                                autocompleteField: 'citation_authors',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'DOI',
-                        groupFields: [{
-                                label: 'DOI',
-                                name: ['citation_doi'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Title',
-                        groupFields: [{
-                                label: 'Title',
-                                name: ['citation_title'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Year',
-                        groupFields: [{
-                                label: 'Year',
-                                name: ['citation_year'],
-                                type: 'int',
-                                validation: 'numberOnly',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
                 categoryLabel: 'Compound',
                 categoryActive: true,
                 categoryFields: [
@@ -1724,9 +2546,9 @@ var PDBe;
                             }]
                     },
                     {
-                        groupLabel: 'Compound weight',
+                        groupLabel: 'Molecular weight',
                         groupFields: [{
-                                label: 'Compound weight',
+                                label: 'Molecular weight',
                                 name: ['compound_weight'],
                                 type: 'float',
                                 selectedValue: undefined
@@ -1735,22 +2557,22 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'Crystallisation ph/ reservoir',
+                categoryLabel: 'Crystallisation pH/ reservoir',
                 categoryActive: true,
                 categoryFields: [
                     {
-                        groupLabel: 'ph',
+                        groupLabel: 'pH',
                         groupFields: [{
-                                label: 'ph',
+                                label: 'pH',
                                 name: ['crystallisation_ph'],
                                 type: 'float',
                                 selectedValue: undefined
                             }]
                     },
                     {
-                        groupLabel: 'Reservoir',
+                        groupLabel: 'Reservoir solution',
                         groupFields: [{
-                                label: 'Reservoir',
+                                label: 'Reservoir solution',
                                 name: ['crystallisation_reservoir'],
                                 type: 'string',
                                 autocompleteField: 'crystallisation_reservoir',
@@ -1791,6 +2613,26 @@ var PDBe;
                                 autocompleteField: 'data_scaling_software',
                                 selectedValue: undefined
                             }]
+                    },
+                    {
+                        groupLabel: 'Refinement software',
+                        groupFields: [{
+                                label: 'Refinement software',
+                                name: ['refinement_software'],
+                                type: 'string',
+                                autocompleteField: 'refinement_software',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Structure solution software',
+                        groupFields: [{
+                                label: 'Structure solution software',
+                                name: ['structure_solution_software'],
+                                type: 'string',
+                                autocompleteField: 'structure_solution_software',
+                                selectedValue: undefined
+                            }]
                     }
                 ]
             },
@@ -1805,6 +2647,15 @@ var PDBe;
                                 name: ['deposition_date'],
                                 type: 'date',
                                 format: 'YYYY-MM-DDThh:mm:ssZ',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Deposition year',
+                        groupFields: [{
+                                label: 'Deposition year',
+                                name: ['deposition_year'],
+                                type: 'int',
                                 selectedValue: undefined
                             }]
                     },
@@ -1863,55 +2714,6 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'EC hierarchy name/ number',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'EC hierarchy name',
-                        groupFields: [{
-                                label: 'EC hierarchy name',
-                                name: ['ec_hierarchy_name'],
-                                type: 'string',
-                                autocompleteField: 'ec_hierarchy_name',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'EC number',
-                        groupFields: [{
-                                label: 'EC number',
-                                name: ['ec_number'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Entity',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Entity Id',
-                        groupFields: [{
-                                label: 'Entity Id',
-                                name: ['entity_id'],
-                                type: 'int',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Entity weight',
-                        groupFields: [{
-                                label: 'Entity weight',
-                                name: ['entity_weight'],
-                                type: 'float',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
                 categoryLabel: 'Entry author',
                 categoryActive: true,
                 categoryFields: [
@@ -1936,16 +2738,46 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'Organism scientific name',
+                categoryLabel: 'Organism',
                 categoryActive: true,
                 categoryFields: [
                     {
                         groupLabel: 'Organism scientific name',
                         groupFields: [{
                                 label: 'Organism scientific name',
-                                name: ['entry_organism_scientific_name'],
+                                name: ['organism_scientific_name'],
                                 type: 'string',
-                                autocompleteField: 'entry_organism_scientific_name',
+                                autocompleteField: 'organism_scientific_name',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'ATCC ID',
+                        groupFields: [{
+                                label: 'ATCC ID',
+                                name: ['atcc'],
+                                type: 'string',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Genus',
+                        groupFields: [{
+                                label: 'Genus',
+                                name: ['genus'],
+                                type: 'string',
+                                autocompleteField: 'genus',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Taxonomic Rank',
+                        groupFields: [{
+                                label: 'Taxonomic Rank',
+                                name: ['rank'],
+                                type: 'string',
+                                value: ["superkingdom", "kingdom", "phylum", "class", "order",
+                                    "family", "subfamily", "genus", "species"],
                                 selectedValue: undefined
                             }]
                     }
@@ -1972,6 +2804,25 @@ var PDBe;
                                 name: ['enzyme_systematic_name'],
                                 type: 'string',
                                 autocompleteField: 'enzyme_systematic_name',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'EC hierarchy name',
+                        groupFields: [{
+                                label: 'EC hierarchy name',
+                                name: ['ec_hierarchy_name'],
+                                type: 'string',
+                                autocompleteField: 'ec_hierarchy_name',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'EC number',
+                        groupFields: [{
+                                label: 'EC number',
+                                name: ['ec_number'],
+                                type: 'string',
                                 selectedValue: undefined
                             }]
                     }
@@ -2059,46 +2910,6 @@ var PDBe;
                                 autocompleteField: 'expression_host_synonyms',
                                 selectedValue: undefined
                             }]
-                    },
-                    {
-                        groupLabel: 'Tax id',
-                        groupFields: [{
-                                label: 'Tax id',
-                                name: ['tax_id'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Gene name',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Gene name',
-                        groupFields: [{
-                                label: 'Gene name',
-                                name: ['gene_name'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Genus',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Genus',
-                        groupFields: [{
-                                label: 'Genus',
-                                name: ['genus'],
-                                type: 'string',
-                                autocompleteField: 'genus',
-                                selectedValue: undefined
-                            }]
                     }
                 ]
             },
@@ -2119,7 +2930,7 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'Interpro accession/ name',
+                categoryLabel: 'Sequence classification',
                 categoryActive: true,
                 categoryFields: [
                     {
@@ -2140,6 +2951,73 @@ var PDBe;
                                 autocompleteField: 'interpro_name',
                                 selectedValue: undefined
                             }]
+                    },
+                    {
+                        groupLabel: 'Pfam accession',
+                        groupFields: [{
+                                label: 'Pfam accession',
+                                name: ['pfam_accession'],
+                                type: 'string',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Pfam name',
+                        groupFields: [{
+                                label: 'Pfam name',
+                                name: ['pfam_clan_name'],
+                                type: 'string',
+                                autocompleteField: 'pfam_clan_name',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Pfam description',
+                        groupFields: [{
+                                label: 'pfam description',
+                                name: ['pfam_description'],
+                                type: 'string',
+                                autocompleteField: 'pfam_description',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Pfam name',
+                        groupFields: [{
+                                label: 'Pfam name',
+                                name: ['pfam_name'],
+                                type: 'string',
+                                autocompleteField: 'pfam_name',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Uniprot accession',
+                        groupFields: [{
+                                label: 'Uniprot accession',
+                                name: ['uniprot_accession'],
+                                type: 'string',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Uniprot features',
+                        groupFields: [{
+                                label: 'Uniprot features',
+                                name: ['uniprot_features'],
+                                type: 'string',
+                                autocompleteField: 'uniprot_features',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Uniprot id',
+                        groupFields: [{
+                                label: 'Uniprot id',
+                                name: ['uniprot_id'],
+                                type: 'string',
+                                selectedValue: undefined
+                            }]
                     }
                 ]
             },
@@ -2148,7 +3026,7 @@ var PDBe;
                 categoryActive: true,
                 categoryFields: [
                     {
-                        groupLabel: 'Journal',
+                        groupLabel: 'Journal name',
                         groupFields: [{
                                 label: 'Journal',
                                 name: ['journal'],
@@ -2158,38 +3036,68 @@ var PDBe;
                             }]
                     },
                     {
-                        groupLabel: 'Journal first page',
-                        groupFields: [{
-                                label: 'Journal first page',
-                                name: ['journal_first_page'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Journal last page',
-                        groupFields: [{
-                                label: 'Journal last page',
-                                name: ['journal_last_page'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Journal page',
-                        groupFields: [{
-                                label: 'Journal page',
-                                name: ['journal_page'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
                         groupLabel: 'Journal volume',
                         groupFields: [{
                                 label: 'Journal volume',
                                 name: ['journal_volume'],
                                 type: 'string',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Authors',
+                        groupFields: [{
+                                label: 'Authors',
+                                name: ['citation_authors'],
+                                type: 'string',
+                                autocompleteField: 'citation_authors',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'DOI',
+                        groupFields: [{
+                                label: 'DOI',
+                                name: ['citation_doi'],
+                                type: 'string',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Title',
+                        groupFields: [{
+                                label: 'Title',
+                                name: ['citation_title'],
+                                type: 'string',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Publication year',
+                        groupFields: [{
+                                label: 'Publication year',
+                                name: ['citation_year'],
+                                type: 'int',
+                                validation: 'numberOnly',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Pubmed id',
+                        groupFields: [{
+                                label: 'Pubmed id',
+                                name: ['pubmed_id'],
+                                type: 'string',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Pubmed authors',
+                        groupFields: [{
+                                label: 'Pubmed authors',
+                                name: ['pubmed_authors'],
+                                type: 'string',
+                                autocompleteField: 'pubmed_authors',
                                 selectedValue: undefined
                             }]
                     }
@@ -2227,21 +3135,6 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'Model quality',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Model quality',
-                        groupFields: [{
-                                label: 'Model quality',
-                                name: ['model_quality'],
-                                type: 'float',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
                 categoryLabel: 'Mutation type',
                 categoryActive: true,
                 categoryFields: [
@@ -2267,13 +3160,13 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'conf features',
+                categoryLabel: 'Nucleic acid conf features',
                 categoryActive: true,
                 categoryFields: [
                     {
-                        groupLabel: 'conf features',
+                        groupLabel: 'Nucleic acid conf features',
                         groupFields: [{
-                                label: 'conf features',
+                                label: 'Nucleic acid conf features',
                                 name: ['na_conf_features'],
                                 type: 'string',
                                 value: ["double helix", "a-form double helix", "mismatched base pair", "hairpin loop",
@@ -2301,67 +3194,7 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'Overall quality',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Overall quality',
-                        groupFields: [{
-                                label: 'Overall quality',
-                                name: ['overall_quality'],
-                                type: 'float',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'pfam accession/ name/ description',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'pfam accession',
-                        groupFields: [{
-                                label: 'pfam accession',
-                                name: ['pfam_accession'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'pfam name',
-                        groupFields: [{
-                                label: 'pfam name',
-                                name: ['pfam_clan_name'],
-                                type: 'string',
-                                autocompleteField: 'pfam_clan_name',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'pfam description',
-                        groupFields: [{
-                                label: 'pfam description',
-                                name: ['pfam_description'],
-                                type: 'string',
-                                autocompleteField: 'pfam_description',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'pfam name',
-                        groupFields: [{
-                                label: 'pfam name',
-                                name: ['pfam_name'],
-                                type: 'string',
-                                autocompleteField: 'pfam_name',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Phasing method',
+                categoryLabel: 'Phasing/ Structure determination method',
                 categoryActive: true,
                 categoryFields: [
                     {
@@ -2372,6 +3205,16 @@ var PDBe;
                                 type: 'string',
                                 value: ["MR", "MAD", "SAD", "mr", "SIRAS", "MIRAS", "MIR", "sad", "ML", "SIR", "mad", "MAD+MR",
                                     "MAD/MR", "SAD+MR", "AB_INITIO", "M.R.", "MR+MAD", "MR+SAD", "MR/MAD", "NONE"],
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Structure determination method',
+                        groupFields: [{
+                                label: 'Structure determination method',
+                                name: ['structure_determination_method'],
+                                type: 'string',
+                                autocompleteField: 'structure_determination_method',
                                 selectedValue: undefined
                             }]
                     }
@@ -2432,105 +3275,6 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'Pubmed id/ authors',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Pubmed id',
-                        groupFields: [{
-                                label: 'Pubmed id',
-                                name: ['pubmed_id'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Pubmed authors',
-                        groupFields: [{
-                                label: 'Pubmed authors',
-                                name: ['pubmed_authors'],
-                                type: 'string',
-                                autocompleteField: 'pubmed_authors',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Pubmed author list',
-                        groupFields: [{
-                                label: 'Pubmed author list',
-                                name: ['pubmed_author_list'],
-                                type: 'string',
-                                autocompleteField: 'pubmed_author_list',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Rank',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Rank',
-                        groupFields: [{
-                                label: 'Rank',
-                                name: ['rank'],
-                                type: 'string',
-                                value: ["species", "superkingdom", "genus", "family", "phylum", "order", "class",
-                                    "kingdom", "subfamily"],
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Refinement software',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Refinement software',
-                        groupFields: [{
-                                label: 'Refinement software',
-                                name: ['refinement_software'],
-                                type: 'string',
-                                autocompleteField: 'refinement_software',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Release date',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Release date',
-                        groupFields: [{
-                                label: 'Release date',
-                                name: ['release_date'],
-                                type: 'date',
-                                format: 'YYYY-MM-DDThh:mm:ssZ',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Release year',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Release year',
-                        groupFields: [{
-                                label: 'Release year',
-                                name: ['release_year'],
-                                type: 'int',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
                 categoryLabel: 'Resolution',
                 categoryActive: true,
                 categoryFields: [
@@ -2546,25 +3290,38 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'Revision date',
+                categoryLabel: 'Release/Revision',
                 categoryActive: true,
                 categoryFields: [
                     {
-                        groupLabel: 'Revision date',
+                        groupLabel: 'Release date',
                         groupFields: [{
-                                label: 'Revision date',
-                                name: ['revision'],
+                                label: 'Release date',
+                                name: ['release_date'],
                                 type: 'date',
                                 format: 'YYYY-MM-DDThh:mm:ssZ',
                                 selectedValue: undefined
                             }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Revision year',
-                categoryActive: true,
-                categoryFields: [
+                    },
+                    {
+                        groupLabel: 'Release year',
+                        groupFields: [{
+                                label: 'Release year',
+                                name: ['release_year'],
+                                type: 'int',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Revision date',
+                        groupFields: [{
+                                label: 'Revision date',
+                                name: ['revision_date'],
+                                type: 'date',
+                                format: 'YYYY-MM-DDThh:mm:ssZ',
+                                selectedValue: undefined
+                            }]
+                    },
                     {
                         groupLabel: 'Revision year',
                         groupFields: [{
@@ -2593,7 +3350,7 @@ var PDBe;
                 ]
             },
             {
-                categoryLabel: 'SCOP family/ fold',
+                categoryLabel: 'Structure classification',
                 categoryActive: true,
                 categoryFields: [
                     {
@@ -2625,6 +3382,55 @@ var PDBe;
                                 autocompleteField: 'scop_superfamily',
                                 selectedValue: undefined
                             }]
+                    },
+                    {
+                        groupLabel: 'CATH architecture',
+                        groupFields: [{
+                                label: 'CATH architecture',
+                                name: ['cath_architecture'],
+                                type: 'string',
+                                autocompleteField: 'cath_architecture',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'CATH class',
+                        groupFields: [{
+                                label: 'CATH class',
+                                name: ['cath_class'],
+                                type: 'string',
+                                value: ["Alpha Beta", "Mainly Beta", "Mainly Alpha", "Few Secondary Structures"],
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'CATH code',
+                        groupFields: [{
+                                label: 'CATH code',
+                                name: ['cath_code'],
+                                type: 'string',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'Homologous superfamily',
+                        groupFields: [{
+                                label: 'Homologous superfamily',
+                                name: ['cath_homologous_superfamily'],
+                                type: 'string',
+                                autocompleteField: 'cath_homologous_superfamily',
+                                selectedValue: undefined
+                            }]
+                    },
+                    {
+                        groupLabel: 'CATH topology',
+                        groupFields: [{
+                                label: 'CATH topology',
+                                name: ['cath_topology'],
+                                type: 'string',
+                                autocompleteField: 'cath_topology',
+                                selectedValue: undefined
+                            }]
                     }
                 ]
             },
@@ -2638,6 +3444,7 @@ var PDBe;
                                 label: 'Spacegroup',
                                 name: ['spacegroup'],
                                 type: 'string',
+                                autocompleteField: 'spacegroup',
                                 selectedValue: undefined
                             }]
                     }
@@ -2654,53 +3461,6 @@ var PDBe;
                                 name: ['status'],
                                 type: 'string',
                                 value: ["REL", "WDRN", "HPUB", "OBS", "AUTH", "PROC", "HOLD", "REPL", "POLC", "WAIT", "AUCO", "REFI"],
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'struct_asym_id',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'struct_asym_id',
-                        groupFields: [{
-                                label: 'struct_asym_id',
-                                name: ['struct_asym_id'],
-                                type: 'string',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Structure determination method',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Structure determination method',
-                        groupFields: [{
-                                label: 'Structure determination method',
-                                name: ['structure_determination_method'],
-                                type: 'string',
-                                autocompleteField: 'structure_determination_method',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Structure solution software',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Structure solution software',
-                        groupFields: [{
-                                label: 'Structure solution software',
-                                name: ['structure_solution_software'],
-                                type: 'string',
-                                autocompleteField: 'structure_solution_software',
                                 selectedValue: undefined
                             }]
                     }
@@ -2745,62 +3505,29 @@ var PDBe;
                                 autocompleteField: 'synchrotron_site',
                                 selectedValue: undefined
                             }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Title',
-                categoryActive: true,
-                categoryFields: [
+                    },
                     {
-                        groupLabel: 'Title',
+                        groupLabel: 'Diffraction source/ Beam source name',
                         groupFields: [{
-                                label: 'Title',
-                                name: ['title'],
+                                label: 'Diffraction source/ Beam source name',
+                                name: ['beam_source_name'],
                                 type: 'string',
-                                autocompleteField: 'title',
-                                selectedValue: undefined
-                            }]
-                    }
-                ]
-            },
-            {
-                categoryLabel: 'Uniprot accession/ coverage/ features',
-                categoryActive: true,
-                categoryFields: [
-                    {
-                        groupLabel: 'Uniprot accession',
-                        groupFields: [{
-                                label: 'Uniprot accession',
-                                name: ['uniprot_accession'],
-                                type: 'string',
+                                value: ["Synchrotron", "Rotating anode", "Sealed tube", "Free-electron laser", "Neutron source",
+                                    "Electron microscope", "TRANSMISSION ELECTRON MICROSCOPE", "NEUTRON SPALLATION SOURCE",
+                                    "Bruker", "Copper", "FRM II", "In-house source", "Compact light source",
+                                    "FRM-II NUCLEAR REACTOR", "IMAGINE CG4D HFIR", "LCLS", "MLZ", "MaruX home source",
+                                    "NUCLEAR REACTOR (INSTITUT LAUE LAN", "Other", "SEALED X-RAY TUBE", "SNS", "SNS/ORNL",
+                                    "SPALLATION"],
                                 selectedValue: undefined
                             }]
                     },
                     {
-                        groupLabel: 'Uniprot coverage',
+                        groupLabel: 'Diffraction type/ Beam source type',
                         groupFields: [{
-                                label: 'Uniprot coverage',
-                                name: ['uniprot_coverage'],
-                                type: 'float',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Uniprot features',
-                        groupFields: [{
-                                label: 'Uniprot features',
-                                name: ['uniprot_features'],
+                                label: 'Diffraction type/ Beam source type',
+                                name: ['beam_source_type'],
                                 type: 'string',
-                                selectedValue: undefined
-                            }]
-                    },
-                    {
-                        groupLabel: 'Uniprot id',
-                        groupFields: [{
-                                label: 'Uniprot id',
-                                name: ['uniprot_id'],
-                                type: 'string',
+                                autocompleteField: 'beam_source_type',
                                 selectedValue: undefined
                             }]
                     }

@@ -26,18 +26,6 @@ namespace PDBe.SolrApp {
             type: 'string', relation: 'Equal to', condition: 'OR',
             selectedValue: undefined
         },
-        interacting_entity_id: {
-            label: 'Interacting entity ID',
-            name: ['interacting_entity_id'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
-            selectedValue: undefined
-        },
-        interacting_entry_id: {
-            label: 'Interacting entry ID',
-            name: ['interacting_entry_id'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
-            selectedValue: undefined
-        },
         interpro_accession: {
             label: 'Interpro accession',
             name: ['interpro_accession'],
@@ -50,12 +38,6 @@ namespace PDBe.SolrApp {
             type: 'string', relation: 'Equal to', condition: 'OR',
             selectedValue: undefined
         },
-        prefered_assembly_id: {
-            label: 'Prefered assembly ID',
-            name: ['prefered_assembly_id'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
-            selectedValue: undefined
-        },
         psi_id: {
             label: 'PSI ID',
             name: ['psi_id'],
@@ -63,8 +45,9 @@ namespace PDBe.SolrApp {
             selectedValue: undefined
         },
         fasta_sequence: {
-            label: 'FASTA Sequence',
-            name: ['xjoin_fasta=true&bf=fasta(percentIdentity)&xjoin_fasta.external.sequence'],
+            label: 'Using FASTA',
+            name: ['fasta_sequence'],
+            queryField: 'xjoin_fasta=true&bf=fasta(percentIdentity)&xjoin_fasta.external.sequence',
             type: 'largeString', relation: 'Equal to', condition: 'OR',
             dataType: 'fastaSequence',
             fqValue: '{!xjoin}xjoin_fasta',
@@ -73,8 +56,9 @@ namespace PDBe.SolrApp {
             appendValueToFq: false
         },
         phmmer_sequence: {
-            label: 'Phmmer Sequence',
-            name: ['xjoin_phmmer.fl=*&xjoin_phmmer.fl=*&xjoin_phmmer=true&xjoin_phmmer.external.sequence'],
+            label: 'Using Phmmer',
+            name: ['phmmer_sequence'],
+            queryField: 'xjoin_phmmer.fl=*&xjoin_phmmer=true&xjoin_phmmer.external.sequence',
             type: 'largeString', relation: 'Equal to', condition: 'OR',
             dataType: 'phmmerSequence',
             fqValue: '{!xjoin}xjoin_phmmer',
@@ -103,31 +87,18 @@ namespace PDBe.SolrApp {
             autocompleteField: 'all_authors',
             selectedValue: undefined
         },
-        molecule_name: {
-            label: 'Molecule Name',
-            name: ['molecule_name'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
-            autocompleteField: 'molecule_name',
-            selectedValue: undefined
-        },
         all_molecule_names: {
-            label: 'All Molecule Name',
+            label: 'All Molecule Names',
             name: ['all_molecule_names'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             autocompleteField: 'all_molecule_names',
             selectedValue: undefined
         },
-        molecule_sequence: {
-            label: 'Molecule sequence',
-            name: ['molecule_sequence'],
+        molecule_name: {
+            label: 'Molecule Name',
+            name: ['molecule_name'],
             type: 'string', relation: 'Equal to', condition: 'OR',
-            selectedValue: undefined
-        },
-        molecule_synonym: {
-            label: 'Molecule synonym',
-            name: ['molecule_synonym'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
-            autocompleteField: 'molecule_synonym',
+            autocompleteField: 'molecule_name',
             selectedValue: undefined
         },
         molecule_type: {
@@ -141,7 +112,14 @@ namespace PDBe.SolrApp {
             label: 'Composition',
             name: ['assembly_composition'],
             type: 'string', relation: 'Equal to', condition: 'OR',
-            autocompleteField: 'assembly_composition',
+            value: ["protein structure", "protein/protein complex", "DNA/protein complex", 
+            "RNA/protein complex", "DNA structure", "RNA structure", "RNA/RNA complex", 
+            "DNA/RNA/protein complex", "DNA/RNA hybrid structure", "DNA/RNA complex", 
+            "DNA/DNA/RNA hybrid/protein complex", "D-protein/protein complex", "DNA/DNA complex", 
+            "D-protein structure", "DNA/RNA hybrid/RNA complex", "DNA/RNA hybrid/protein complex", 
+            "DNA/DNA/RNA hybrid complex", "DNA/RNA hybrid/RNA/protein complex", 
+            "DNA/RNA hybrid/DNA/RNA hybrid complex", "RNA/other complex", "RNA/polysaccharide complex",
+            "other/protein complex", "D-protein/RNA complex", "other structure"],
             selectedValue: undefined
         },
         assembly_form: {
@@ -151,14 +129,8 @@ namespace PDBe.SolrApp {
             value: ['homo', 'hetero'],
             selectedValue: undefined
         },
-        assembly_id: {
-            label: 'ID',
-            name: ['assembly_id'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
-            selectedValue: undefined
-        },
         assembly_type: {
-            label: 'Type',
+            label: 'Polymer count',
             label2: '-mer',
             name: ['assembly_type'],
             type: 'int', relation: '=', condition: 'OR',
@@ -173,7 +145,7 @@ namespace PDBe.SolrApp {
             selectedValue: undefined
         },
         beam_source_name: {
-            label: 'Source name',
+            label: 'Beam source name',
             name: ['beam_source_name'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             value: ["Synchrotron", "Rotating anode", "Sealed tube", "Free-electron laser", "Neutron source",
@@ -185,9 +157,10 @@ namespace PDBe.SolrApp {
             selectedValue: undefined
         },
         beam_source_type: {
-            label: 'Source type',
+            label: 'Beam source type',
             name: ['beam_source_type'],
             type: 'string', relation: 'Equal to', condition: 'OR',
+            autocompleteField: 'beam_source_type',
             selectedValue: undefined
         },
         biological_cell_component: {
@@ -308,7 +281,7 @@ namespace PDBe.SolrApp {
             selectedValue: undefined
         },
         citation_year: {
-            label: 'Year',
+            label: 'Publication Year',
             name: ['citation_year'],
             type: 'int', relation: '=', condition: 'OR',
             validation: 'numberOnly',
@@ -348,13 +321,13 @@ namespace PDBe.SolrApp {
             selectedValue: undefined
         },
         crystallisation_ph: {
-            label: 'ph',
+            label: 'pH',
             name: ['crystallisation_ph'],
             type: 'float', relation: '=', condition: 'OR',
             selectedValue: undefined
         },
         crystallisation_reservoir: {
-            label: 'Reservoir',
+            label: 'Reservoir solution',
             name: ['crystallisation_reservoir'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             autocompleteField: 'crystallisation_reservoir',
@@ -385,6 +358,12 @@ namespace PDBe.SolrApp {
             name: ['deposition_date'],
             type: 'date', relation: '=', condition: 'OR',
             format: 'YYYY-MM-DDThh:mm:ssZ',
+            selectedValue: undefined
+        },
+        deposition_year: {
+            label: 'Deposition year',
+            name: ['deposition_year'],
+            type: 'int', relation: '=', condition: 'OR',
             selectedValue: undefined
         },
         deposition_site: {
@@ -435,7 +414,7 @@ namespace PDBe.SolrApp {
             selectedValue: undefined
         },
         entity_weight: {
-            label: 'Entity weight',
+            label: 'Macromolecule molecular weight',
             name: ['entity_weight'],
             type: 'float', relation: '=', condition: 'OR',
             selectedValue: undefined
@@ -452,11 +431,11 @@ namespace PDBe.SolrApp {
             type: 'string', relation: 'Equal to', condition: 'OR',
             selectedValue: undefined
         },
-        entry_organism_scientific_name: {
+        organism_scientific_name: {
             label: 'Organism scientific name',
-            name: ['entry_organism_scientific_name'],
+            name: ['organism_scientific_name'],
             type: 'string', relation: 'Equal to', condition: 'OR',
-            autocompleteField: 'entry_organism_scientific_name',
+            autocompleteField: 'organism_scientific_name',
             selectedValue: undefined
         },
         enzyme_name: {
@@ -525,12 +504,6 @@ namespace PDBe.SolrApp {
             autocompleteField: 'expression_host_synonyms',
             selectedValue: undefined
         },
-        tax_id: {
-            label: 'Tax id',
-            name: ['tax_id'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
-            selectedValue: undefined
-        },
         gene_name: {
             label: 'Gene name',
             name: ['gene_name'],
@@ -542,6 +515,13 @@ namespace PDBe.SolrApp {
             name: ['genus'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             autocompleteField: 'genus',
+            selectedValue: undefined
+        },
+        interacting_molecules: {
+            label: 'Interacting molecule',
+            name: ['interacting_molecules'],
+            type: 'string', relation: 'Equal to', condition: 'OR',
+            autocompleteField: 'interacting_molecules',
             selectedValue: undefined
         },
         interacting_ligands: {
@@ -559,28 +539,10 @@ namespace PDBe.SolrApp {
             selectedValue: undefined
         },
         journal: {
-            label: 'Journal',
+            label: 'Journal name',
             name: ['journal'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             autocompleteField: 'journal',
-            selectedValue: undefined
-        },
-        journal_first_page: {
-            label: 'Journal first page',
-            name: ['journal_first_page'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
-            selectedValue: undefined
-        },
-        journal_last_page: {
-            label: 'Journal last page',
-            name: ['journal_last_page'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
-            selectedValue: undefined
-        },
-        journal_page: {
-            label: 'Journal page',
-            name: ['journal_page'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
             selectedValue: undefined
         },
         journal_volume: {
@@ -595,10 +557,11 @@ namespace PDBe.SolrApp {
             type: 'string', relation: 'Equal to', condition: 'OR',
             selectedValue: undefined
         },
-        model_quality: {
-            label: 'Model quality',
-            name: ['model_quality'],
-            type: 'float', relation: '=', condition: 'OR',
+        microheterogeneity: {
+            label: 'Microheterogeneity',
+            name: ['microheterogeneity'],
+            type: 'string', relation: 'Equal to', condition: 'OR',
+            value: ['y', 'n'],
             selectedValue: undefined
         },
         mutation: {
@@ -615,7 +578,7 @@ namespace PDBe.SolrApp {
             selectedValue: undefined
         },
         na_conf_features: {
-            label: 'conf features',
+            label: 'Nucleic acid conf features',
             name: ['na_conf_features'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             value: ["double helix", "a-form double helix", "mismatched base pair", "hairpin loop",
@@ -630,34 +593,28 @@ namespace PDBe.SolrApp {
             autocompleteField: 'organism_synonyms',
             selectedValue: undefined
         },
-        overall_quality: {
-            label: 'Overall quality',
-            name: ['overall_quality'],
-            type: 'float', relation: '=', condition: 'OR',
-            selectedValue: undefined
-        },
         pfam_accession: {
-            label: 'pfam accession',
+            label: 'Pfam accession',
             name: ['pfam_accession'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             selectedValue: undefined
         },
         pfam_clan_name: {
-            label: 'pfam name',
+            label: 'Pfam name',
             name: ['pfam_clan_name'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             autocompleteField: 'pfam_clan_name',
             selectedValue: undefined
         },
         pfam_description: {
-            label: 'pfam description',
+            label: 'Pfam description',
             name: ['pfam_description'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             autocompleteField: 'pfam_description',
             selectedValue: undefined
         },
         pfam_name: {
-            label: 'pfam name',
+            label: 'Pfam name',
             name: ['pfam_name'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             autocompleteField: 'pfam_name',
@@ -714,19 +671,12 @@ namespace PDBe.SolrApp {
             autocompleteField: 'pubmed_authors',
             selectedValue: undefined
         },
-        pubmed_author_list: {
-            label: 'Pubmed author list',
-            name: ['pubmed_author_list'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
-            autocompleteField: 'pubmed_author_list',
-            selectedValue: undefined
-        },
         rank: {
-            label: 'Rank',
+            label: 'Taxonomic Rank',
             name: ['rank'],
             type: 'string', relation: 'Equal to', condition: 'OR',
-            value: ["species", "superkingdom", "genus", "family", "phylum", "order", "class",
-                "kingdom", "subfamily"],
+            value: ["superkingdom","kingdom","phylum","class","order",
+                "family", "subfamily","genus","species"],
             selectedValue: undefined
         },
         refinement_software: {
@@ -755,7 +705,7 @@ namespace PDBe.SolrApp {
             type: 'float', relation: '=', condition: 'OR',
             selectedValue: undefined
         },
-        revision: {
+        revision_date: {
             label: 'Revision date',
             name: ['revision'],
             type: 'date', relation: '=', condition: 'OR',
@@ -773,6 +723,13 @@ namespace PDBe.SolrApp {
             name: ['sample_preparation_method'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             value: ["Engineered", "Natural", "Synthetic"],
+            selectedValue: undefined
+        },
+        scop_class: {
+            label: 'SCOP class',
+            name: ['scop_class'],
+            type: 'string', relation: 'Equal to', condition: 'OR',
+            autocompleteField: 'scop_class',
             selectedValue: undefined
         },
         scop_family: {
@@ -800,6 +757,7 @@ namespace PDBe.SolrApp {
             label: 'Spacegroup',
             name: ['spacegroup'],
             type: 'string', relation: 'Equal to', condition: 'OR',
+            autocompleteField: 'spacegroup',
             selectedValue: undefined
         },
         status: {
@@ -807,12 +765,6 @@ namespace PDBe.SolrApp {
             name: ['status'],
             type: 'string', relation: 'Equal to', condition: 'OR',
             value: ["REL", "WDRN", "HPUB", "OBS", "AUTH", "PROC", "HOLD", "REPL", "POLC", "WAIT", "AUCO", "REFI"],
-            selectedValue: undefined
-        },
-        struct_asym_id: {
-            label: 'struct_asym_id',
-            name: ['struct_asym_id'],
-            type: 'string', relation: 'Equal to', condition: 'OR',
             selectedValue: undefined
         },
         structure_determination_method: {
@@ -863,16 +815,11 @@ namespace PDBe.SolrApp {
             type: 'string', relation: 'Equal to', condition: 'OR',
             selectedValue: undefined
         },
-        uniprot_coverage: {
-            label: 'Uniprot coverage',
-            name: ['uniprot_coverage'],
-            type: 'float', relation: '=', condition: 'OR',
-            selectedValue: undefined
-        },
         uniprot_features: {
             label: 'Uniprot features',
             name: ['uniprot_features'],
             type: 'string', relation: 'Equal to', condition: 'OR',
+            autocompleteField: 'uniprot_features',
             selectedValue: undefined
         },
         uniprot_id: {
